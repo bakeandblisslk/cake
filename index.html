@@ -549,6 +549,63 @@
         </div>
     </footer>
 
+    <!-- Warning Modal -->
+<div id="warningBox" class="fixed inset-0 flex items-center justify-center bg-black/50 hidden z-50">
+    <div class="bg-white p-8 rounded-xl shadow-xl max-w-sm text-center">
+        <h2 class="text-xl font-bold mb-4 text-red-600">Warning!</h2>
+        <p class="text-gray-700">This action is not allowed.</p>
+        <button onclick="closeWarning()" class="mt-6 bg-red-600 text-white px-6 py-2 rounded-lg hover:bg-red-700 transition">Close</button>
+    </div>
+</div>
+
+<script>
+// Show modal
+function showWarning() {
+    document.getElementById('warningBox').classList.remove('hidden');
+}
+
+// Close modal
+function closeWarning() {
+    document.getElementById('warningBox').classList.add('hidden');
+}
+
+// Disable right-click
+document.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+    showWarning();
+});
+
+// Disable keys: Ctrl+U, Ctrl+Shift+I, Ctrl+Shift+J, Ctrl+Shift+C, F12
+document.addEventListener('keydown', function(e) {
+    // Ctrl+U
+    if (e.ctrlKey && e.key.toLowerCase() === 'u') {
+        e.preventDefault();
+        showWarning();
+    }
+    // Ctrl+Shift+I
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'i') {
+        e.preventDefault();
+        showWarning();
+    }
+    // Ctrl+Shift+J
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'j') {
+        e.preventDefault();
+        showWarning();
+    }
+    // Ctrl+Shift+C
+    if (e.ctrlKey && e.shiftKey && e.key.toLowerCase() === 'c') {
+        e.preventDefault();
+        showWarning();
+    }
+    // F12
+    if (e.key === 'F12') {
+        e.preventDefault();
+        showWarning();
+    }
+});
+</script>
+
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
@@ -608,3 +665,4 @@
 
 
 </html>
+
